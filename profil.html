@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <title>jsPDF - Create PDFs with HTML5 JavaScript Library</title>
+        <link rel="stylesheet" href="../../static/styles/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../static/styles/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="../../static/styles/datatables.min.css"/>
+<link rel="stylesheet" href="../../static/css/bootstrap.edit.css"/>
+<script type="text/javascript" src="../../static/scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../../static/styles/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/scripts/datatables.min.js"></script>
+
+<script type="text/javascript" src="../../static/scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../static/scripts/jquery.mask.min.js"></script>
+<script type="text/javascript" src="../../static/jspdf.min.js"></script>
+	</head>
+
+	<body>
+        <div id="pdf">
+		<div class="container">
+			<div id="customers">
+                <table id="tab_customers" class="table table-striped" >
+                    <thead>         
+                        <tr class='warning'>
+                            <th width="300">Country</th>
+                            <th width="800">Population</th>
+                            <th width="300">Date</th>
+                            <th width="300">Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chinna</td>
+                            <td >1,363,480,000</td>
+                            <td>March 24, 2014</td>
+                            <td>19.1</td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                            <td>1,241,900,000</td>
+                            <td>March 24, 2014</td>
+                            <td>17.4</td>
+                        </tr>
+                        <tr>
+                            <td>United States</td>
+                            <td>317,746,000</td>
+                            <td>March 24, 2014</td>
+                            <td>4.44</td>
+                        </tr>
+                        <tr>
+                            <td>Indonesia</td>
+                            <td>249,866,000</td>
+                            <td>July 1, 2013</td>
+                            <td>3.49</td>
+                        </tr>
+                        <tr>
+                            <td>Brazil</td>
+                            <td>201,032,714</td>
+                            <td>July 1, 2013</td>
+                            <td>2.81</td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            
+            <button id="click" onclick="generate()">Generate</button>
+
+		</div> <!-- /container -->
+    </div>
+
+        <script type="text/javascript">
+          function generate() {
+            var doc = new jsPDF();
+                        doc.fromHTML($('#pdf').get(0), 15, 15);
+            doc.save('export.pdf');
+          }
+        </script>
+	</body>
+</html>
